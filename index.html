@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tony DiRusso</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+</head>
+<body>
+
+
+    <!-- Nav Bar -->
+    <div id="home"></div>
+    <div data-nav class="top-bar">
+        <h2 class="title-text"><a class="nav-button" href="#home">AD</a></h2>
+        <ul class="nav">
+            <li><a class="nav-button" href="#about">ABOUT</a></li>
+            <li><a class="nav-button" href="#portfolio">PROJECTS</a></li>
+            <li><a class="nav-button" href="#contact">CONTACT</a></li>
+        </ul>
+    </div>
+    <div class="d3">
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script>
+        
+    var width = 950,
+        height = 500;
+
+    var nodes = d3.range(200).map(function() { return {radius: Math.random() * 12 + 4}; }),
+        root = nodes[0],
+        color = d3.scale.category20c();
+
+    root.radius = 0;
+    root.fixed = true;
+
+    var force = d3.layout.force()
+        .gravity(0.05)
+        .charge(function(d, i) { return i ? 0 : -2000; })
+        .nodes(nodes)
+        .size([width, height]);
+
+    force.start();
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    svg.selectAll("circle")
+        .data(nodes.slice(1))
+    .enter().append("circle")
+        .attr("r", function(d) { return d.radius; })
+        .style("fill", function(d, i) { return color(i % 3); });
+
+    force.on("tick", function(e) {
+    var q = d3.geom.quadtree(nodes),
+        i = 0,
+        n = nodes.length;
+
+    while (++i < n) q.visit(collide(nodes[i]));
+
+    svg.selectAll("circle")
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+    });
+
+    svg.on("mousemove", function() {
+    var p1 = d3.mouse(this);
+    root.px = p1[0];
+    root.py = p1[1];
+    force.resume();
+    });
+
+    function collide(node) {
+    var r = node.radius + 16,
+        nx1 = node.x - r,
+        nx2 = node.x + r,
+        ny1 = node.y - r,
+        ny2 = node.y + r;
+    return function(quad, x1, y1, x2, y2) {
+        if (quad.point && (quad.point !== node)) {
+        var x = node.x - quad.point.x,
+            y = node.y - quad.point.y,
+            l = Math.sqrt(x * x + y * y),
+            r = node.radius + quad.point.radius;
+        if (l < r) {
+            l = (l - r) / l * .5;
+            node.x -= x *= l;
+            node.y -= y *= l;
+            quad.point.x += x;
+            quad.point.y += y;
+        }
+        }
+        return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+    };
+    }
+
+    </script>
+    </div>
+    
+    <!-- Hero Image -->
+    <div class="hero-image" >
+        
+    </div>
+    
+
+    <!-- About Me -->
+    <div class="about">
+        <div class="picture-frame" id="about">
+        </div>
+
+        <h1 class="about-h1">Hi, I'm Tony</h1>
+
+        <p class="about-paragraph">I’m a full stack web developer and designer living in Atlanta, Ga. I graduated Magna Cum Laude with a fine art degree from Georgia State University. </p>
+
+        <p class="about-paragraph">Like most artist, after graduation I needed more than art to pay the bills and by a twist of fate I found work as a logistics manager for an
+                International distribution company. While working there I began to see how technology can vastly improve productivity and I started to study the technologies that were driving the logistics world. I continued my education after leaving the logistics world by attending Digital Crafts immersive full stack web development program in the spring of 2019. Today I am most excited by the idea of working with a team to bring technology	and art together to make the best possible outcomes for all.</p>
+            
+    </div>
+
+    <!-- Skills -->
+    <div class="skills">
+
+        <h1 class="skills-h1">Skills</h1>
+        <div class="skills-container">
+
+            <div class="known">
+                <h2>What I know</h2>
+                <div class="known-skills">
+                    <div class="html logo-container">
+                        <img class="logo" src="images/html-logo.png" alt="HTML logo">
+                        <p>HTML</p>
+                    </div>
+                    <div class="CSS logo-container">
+                        <img class="logo" src="images/css3.png" alt="CSS logo">
+                        <p>CSS</p>
+                    </div>
+                    <div class="bootstrap logo-container">
+                        <img class="logo" src="images/Bootstrap.png" alt="Bootstrap logo">
+                        <p>Bootstrap</p>
+                    </div>
+                    <div class="javascript logo-container">
+                        <img class="logo" src="images/javascript-logo.png" alt="Javascript logo">
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="node logo-container">
+                        <img class="logo" src="images/nodejs.png" alt="Node logo">
+                        <p>Node.js</p>
+                    </div>
+                    <div class="express logo-container">
+                        <img class="logo" src="images/ExpressLogov2.png" alt="Express logo">
+                        <p>Express</p>
+                    </div>
+                    <div class="sql logo-container">
+                        <img class="logo" src="images/PostgreSQL_logo.3colors.png" alt="sql logo">
+                        <p>PostgreSQL</p>
+                    </div>
+                    <div class="git logo-container">
+                        <img class="logo" src="images/git.png" alt="Git logo">
+                        <p>Git</p>
+                    </div>
+                    <div class="excel logo-container" id="portfolio">
+                        <img class="logo" src="images/microsoftExcel.png" alt="Excel logo">
+                        <p>Excel</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border">
+
+            </div>
+    
+            <div class="learning">
+                <h2>What I am learning</h2>
+                <div class="learning-skills">
+                    <div class="react">
+                        <img class="logo" src="images/React.png" alt="React logo">
+                        <p>React</p>
+                    </div>
+                    <div class="redux">
+                        <img class="logo" src="images/Redux.png" alt="Redux logo">
+                        <p>Redux</p>
+                    </div>
+                    <div class="mongo">
+                        <img class="logo" src="images/mongodb.svg" alt="MongoDB icon">
+                        <p>MongoDB</p>
+                    </div>
+                    <div class="d3-logo">
+                        <img class="logo" src="images/d3.png" alt="D3 icon">
+                        <p>D3</p>
+                    </div>
+                    <div class="dreamweaver-logo">
+                        <img class="logo" src="images/Dreamweaver_CC_icon.png" alt="Dreamweaver icon">
+                        <p>DW</p>
+                    </div>
+                    <div class="photoshop">
+                        <img class="logo" src="images/ps-logo.png" alt="photoshop icon">
+                        <p>PS</p>
+                    </div>
+                    <div class="illustrator">
+                        <img class="logo" src="images/illustrator-log.png" alt="illustrator icon">
+                        <p>Ai</p>
+                    </div>
+                    <div class="sass">
+                        <img class="logo" src="images/Sass_Logo.png" alt="Sass icon">
+                        <p>Sass</p>
+                    </div>
+                    <div class="vue">
+                        <img class="logo" src="images/vue-logo.png" alt="Vue icon">
+                        <p>Vue</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+   
+
+    <!-- Featured Project -->
+
+    
+    
+    <div class="other-projects">
+            <h1 class="h1">Projects:</h1> 
+            <p class="reach-out">Please reach out to me with comments or questions about any of these projects! I love talking about software development and I am always looking to improve. My contact information is below.</p>
+        
+                <h2 class="h2">MovieCloud</h2>
+                <p class="project-paras">MovieCloud is a front-end web application that asks the user for their zip code, and returns the movies playing in the users area on the next rainy day. The movies are displayed as clickable movie posters. If there's no rain in the forecast MovieCloud might suggest you explore the great outdoors.</p>
+                <p class="featured-project-desc">Built with: HTML, CSS, JavaScript, RESTful API</p><br /> <br />
+                
+               
+        
+        
+                <a href="https://github.com/ebwittenberg/front-end-movie-project" target="_blank"><button class="button">GitHub</button></a>
+                <a href="https://moviecloud.ewittenberg.com/" target="_blank"><button class="button">Live Site</button></a> <br />
+                <br />
+                <br />
+                <div class="project">
+                    <img class="moviecloud-image" src="https://raw.githubusercontent.com/ebwittenberg/front-end-movie-project/master/images/main%20page.png" alt="MovieCloud image">
+                    <div class="description">
+        
+        
+                    </div>
+                </div>
+        
+            </div>
+    <div class="featured-project">
+      
+        <h2 class="h2">Featured Project: Order Management System</h2>
+
+        <p class="featured-project-h3">A full stack web application that provides data visualization services based on criteria like customers per day, allowing users to make smarter inventory management decisions.</p>
+
+        
+        <p class="project-paras">Watch the video below for a brief walkthrough to see the features in action. You can also see a snippet of the code. To view the fully functional code, check it out on GitHub.</p>
+        <p3 class="featured-project-desc">Built with: HTML5, Bootstrap, CSS3, JavaScript, PostgreSQL, Node.js, Express </p3>
+        <div class="featured-links">
+
+            <a href="https://github.com/A-DiRusso/oms-project-app">
+                <button class="github-button">GitHub</button>
+            </a>
+            <a href="https://oms.ewittenberg.com/login" target="_blank">
+                <button class="github-button">Live Site</button>
+            </a>
+
+        </div>
+
+        <div class="featured-media">
+
+            <iframe class="youtube" width="560" height="400" src="https://www.youtube.com/embed/KKwtoURNy1g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+            <iframe class="codepen" height="400" style="width: 100%;" scrolling="no" title="qwoyVm" src="//codepen.io/ewittenberg/embed/qwoyVm/?height=342&theme-id=0&default-tab=js" frameborder="no" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href='https://codepen.io/ewittenberg/pen/qwoyVm/'>qwoyVm</a> by Eric
+                (<a href='https://codepen.io/ewittenberg'>@ewittenberg</a>) on <a href='https://codepen.io'>CodePen</a>.
+            </iframe>
+
+        </div>
+
+
+    </div>
+
+   
+
+
+    <!-- Other project -->
+
+        <!-- <div class="divider">
+            </div> -->
+       
+
+    <div class="contact" id="contact">
+        <h2 class="h2">Contact</h2>
+        <p class="project-paras">I look forwated to hearing from you.<br/>Have a great day!</p>
+
+        <div class="contact-icons">
+            <a href="mailto:ossurid@gmail.com">
+                <img class="contact-logo" src="images/email-logo.png" alt="Email logo">
+            </a>
+            <a href="https://www.linkedin.com/in/tony-dirusso-0a2739183" target="_blank">
+                <img class="contact-logo" src="images/In-2C-59px-R.png" alt="LinkedIn logo">
+            </a>
+            <a href="https://github.com/A-DiRusso" target="_blank">
+                <img class="contact-logo" src="images/GitHub-Mark-64px.png" alt="GitHub logo">
+            </a>
+            <a href="https://drive.google.com/file/d/0BzCyB-XZqG9mVWhqdVhlWlB2TlkxZ0VCRm81MGNva3VESXRF/view?usp=sharing" target="_blank">
+                <img class="contact-logo" src="images/resume-logo.png" alt="Resume logo">
+            </a>
+        </div>
+
+    </div>
+
+<script src="/scripts/index.js"></script>
+</body>
+</html>

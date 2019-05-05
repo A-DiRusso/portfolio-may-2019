@@ -1,0 +1,413 @@
+/* Add styles here */
+html {
+    background-color: white;
+    background-color: steelblue;
+    background-color: #3d5299;
+    background-color: #00c0ff;
+    background-color: rgba(107, 174, 214, .3);
+    box-sizing: border-box;
+    font-family: 'Open Sans Condensed', sans-serif;
+    scroll-behavior: smooth
+}
+
+*, *:before, *:after {
+    box-sizing: inherit
+}
+
+.button {
+    color: white;
+    background: #A5D8F0;
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 5px;
+}
+
+.top-bar {
+    /* position: fixed; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #b3d6ea;
+    color: #3d5299;
+
+}
+
+.top-bar.fixed {
+    position: fixed;
+    z-index: 1000;
+}
+
+.nav-button:hover {
+    color: #ff8540;
+}
+
+.hero-image {
+    height: 10px;
+    text-align: center;
+    background-color: #00C0ff;
+    background-color: #3d5299;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('/D3/index.html');
+}
+
+.title-text {
+    margin-left: 15px;
+}
+
+.nav {
+    display: flex;
+    padding: 0;
+    padding-top: 5.5px;
+    margin-right: 20px;
+}
+
+.nav li {
+    list-style: none;
+    margin: 10px;
+}
+
+.secondary-text {
+    font-size: 30px;
+    font-style: italic;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.about {
+    /* height: 300px; */
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.about-h1 {
+    font-size: 3em;
+}
+.picture-frame {
+    border: 2px solid #3d5299;
+    float: right;
+    height: 250px;
+    width: 250px;
+    /* border: 15px solid #ff8540; */
+    border-radius: 100%;
+    background-image: url('/images/IMG_0354.jpg');
+    background-position: center;
+    background-size: cover;
+    margin-top: -150px;
+}
+
+.about-paragraph {
+    font-size: 1.7em;
+    line-height: 1.3em;
+}
+
+.logo-container {
+    width: 50px;
+    height: 100px;
+}
+
+.skills {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+
+    
+}
+
+.skills-h1 {
+    font-size: 2.5em;
+}
+.h1 {
+    font-size: 2.5em;
+}
+.h2 {
+    font-size: 1.8em;
+}
+.p {
+    font-size: 1.4em;
+}
+.skills-container  {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.known {
+    flex: 1;
+}
+.learning {
+    flex: 1;  
+}
+
+
+.known-skills, .learning-skills {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-style: oblique;
+}
+
+.learning-skills {
+    margin-left: 20px;
+}
+
+.known-skills {
+    margin-right: 20px;
+}
+
+.known-skills > * {
+    margin: 20px;
+}
+
+.learning-skills > * {
+    margin: 20px;
+}
+
+.border {
+    border: 3px solid black;
+    margin: 5px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.github-button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 45px;
+    margin-top: 45px;
+    margin-left: 5px;
+    color: white;
+    background: #A5D8F0;
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.github-button:hover {
+    background: #ff8540;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.featured-project {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    /* height: 800px; */
+    margin-top: 100px;
+    
+
+}
+
+.featured-project-desc {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: oblique;
+    font-size: .8em;
+}
+
+.featured-project-h3 {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+.featured-media {
+    display: flex;
+}
+
+.featured-links {
+    display: flex;
+    justify-content: center;
+}
+
+.youtube {
+    flex: 1;
+}
+
+.codepen {
+    flex: 1;
+}
+
+.other-projects {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.reach-out {
+    margin-bottom: 50px;
+    font-size: 1.4em;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.project {
+    display: flex;
+    justify-content: space-around;
+}
+
+.description {
+    margin-left: 20px;
+}
+
+.project1 {
+    display: flex;
+}
+
+.project-paras {
+    font-size: 1.1em;
+}
+
+.moviecloud-image {
+    margin: 0 auto;
+    width: 100%;
+    height: 75%;
+}
+.button:hover {
+    background-color: #ff8540;
+}
+
+.divider {
+    position: relative;
+    top: 100px;
+    /* height: 5px; */
+    border: 1px solid #d3d3d3;
+}
+
+.divider-two {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    /* height: 5px; */
+    border: 1px solid #d3d3d3;
+
+}
+
+
+.project3, .project4 {
+    margin-top: 20px;
+}
+
+
+.contact {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.contact-icons {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.contact-logo:hover {
+    transform: scale(1.2)
+}
+.contact-logo {
+    width: 40px;
+    height: 35px;
+}
+
+
+
+/* Media queries */
+
+@media (max-width: 1100px) {
+    .skills {
+        /* background-color: blue; */
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .featured-media {
+        display: block;
+    }
+
+    .youtube {
+        width: 400px;
+    }
+
+    .codepen {
+        width: 400px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .top-bar {
+        font-size: .5em;
+        justify-content: space-around;
+    }
+
+    .top-bar.fixed {
+        position: initial;
+    }
+
+    .skills-container {
+        width: 85%;
+        display: block;
+    }
+
+    .learning-skills{
+        width: 85%;
+        display: block;
+    }
+
+    .project {
+        display: block;
+    }
+
+    .featured-project {
+        width: 100%;
+    }
+
+    .moviecloud-image {
+        width: 100%;
+    }
+
+    .description {
+        margin: 0;
+    }
+
+    .youtube {
+        width: 100%;
+    }
+
+    .contact {
+        width: 100%;
+    }
+
+    .contact-icons {
+        width: 75%;
+    }
+}
